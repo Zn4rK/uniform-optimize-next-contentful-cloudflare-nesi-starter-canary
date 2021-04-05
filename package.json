@@ -1,0 +1,60 @@
+{
+  "name": "@uniformdev/optimize-starter-contentful-next-cloudflare-workers",
+  "version": "6.1.0",
+  "private": true,
+  "license": "Apache-2.0",
+  "scripts": {
+    "dev": "run-s build export dev:worker",
+    "dev:next": "next dev -p 4120",
+    "build": "run-s generate build:next",
+    "build:next": "next build",
+    "export": "next export",
+    "generate": "run-p generate:intents",
+    "generate:intents": "uniform optimize manifest download --output ./lib/intentManifest.json --apiKey $UNIFORM_API_KEY",
+    "start": "next start -p 4120",
+    "ci:build": "run-s build export",
+    "build:worker": "wrangler build",
+    "dev:worker": "wrangler dev",
+    "publish:worker": "wrangler publish"
+  },
+  "dependencies": {
+    "@analytics/google-analytics": "^0.5.2",
+    "@analytics/segment": "^0.6.1",
+    "@cloudflare/kv-asset-handler": "^0.1.1",
+    "@contentful/rich-text-html-renderer": "^14.1.2",
+    "@n8tb1t/use-scroll-position": "^2.0.3",
+    "@uniformdev/optimize-tracker-analytics": "canary",
+    "@uniformdev/optimize-tracker-browser": "canary",
+    "@uniformdev/optimize-tracker-contentful": "canary",
+    "@uniformdev/optimize-tracker-react": "canary",
+    "@uniformdev/optimize-tracker-storage-indexeddb": "canary",
+    "analytics": "^0.7.5",
+    "contentful": "^8.2.0",
+    "cookie": "^0.4.1",
+    "next": "10.0.9",
+    "nookies": "^2.5.2",
+    "react": "17.0.2",
+    "react-dom": "17.0.2"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^2.2.1",
+    "@cloudflare/wrangler": "^1.15.0",
+    "@types/node": "^14.14.37",
+    "@types/react": "^17.0.3",
+    "@uniformdev/cli": "canary",
+    "autoprefixer": "^10.2.5",
+    "dotenv": "^8.2.0",
+    "node-fetch": "^2.6.1",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.2.8",
+    "postcss-preset-env": "^6.7.0",
+    "prettier": "^2.2.1",
+    "tailwindcss": "^2.0.4",
+    "ts-loader": "^8.1.0",
+    "typescript": "^4.2.3"
+  },
+  "peerDependencies": {
+    "@cloudflare/wrangler": ">=1.0.0"
+  }
+}
+

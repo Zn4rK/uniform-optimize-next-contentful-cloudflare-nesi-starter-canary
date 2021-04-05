@@ -1,0 +1,5 @@
+# Wrangler creates these, do not commit.
+worker/
+package.json
+package-lock.json
+script.js
